@@ -7,7 +7,7 @@ const estudiantes = [{nombre:"Anthony",apellido:"Narvaez"},
 {nombre:"Roberto",apellido:"Ramos"},
 {nombre:"Xavier",apellido:"Contreras"},
 ];
-const estudiate2 = {nombre:"Andrea",apellido:"Alvares"}
+
 
 //para conectar aqui usamos propiedades reactivas 
 
@@ -29,7 +29,9 @@ const app = Vue.createApp({
         return{
             mensaje: "hola Mundo Propiedad Reactiva",
             valor: 7,
-            lista: estudiantes
+            lista: estudiantes,
+            nombre: null,
+            apellido: null
 
         }
     }
@@ -44,8 +46,30 @@ const app = Vue.createApp({
             this.valor = this.valor +100;
             
         }, agregarDato(){
-            this.lista.unshift(estudiate2);
 
+            console.log(this.nombre)
+            console.log(this.apellido)
+
+            const estudiate2 = {nombre: this.nombre ,apellido: this.apellido}
+
+            this.lista.unshift(estudiate2); 
+            this.resetear();
+        },
+        resetear(){
+            this.nombre = null;
+            this.apellido = null;
+        },
+        agregarDato2({charCode}){
+            console.log(charCode)
+            //if (charCode !== 13) return;
+            if(this.nombre!==null && this.apellido!== null){
+                this.agregarDato();
+
+            }
+            
+            
+                
+            
         }
     }
 

@@ -13,7 +13,16 @@
         <header></header>
         <nav></nav>
         <section>
-            <button v-on:click="agregarDato">Agregar Estudiante</button>
+            <!-- Cuarta directiva-->
+            <label for="idNombre">Nombre:</label>
+            <input v-model="nombre" id="idNombre" type="text">
+            <label for="idApellido">Apellido:</label>
+            
+
+
+            <input @keypress.enter ="agregarDato2" v-model="apellido"  id="idApellido" type="text">
+            <!-- <button v-on:click="agregarDato">Agregar Estudiante</button>-->
+            
             <ul>
                 <!-- Tercera directiva-->
                 <!-- Repite el elemento deseamos , utilizamos el v-for que actua como el for each -->
@@ -34,9 +43,17 @@
                 <li>{{lista [4]}}</li> -->
 
                 <li v-for="({nombre,apellido}, index) in lista">
-                    <h3>{{index + 1}} - {{nombre}}</h1>
-                    <h4>{{apellido}}</h2>
-                </li>
+                    <!-- Quinta directiva-->
+
+                    <!-- <h3 v-if="nombre!==undefined">{{index + 1}} - {{nombre}}</h1>
+                    <h4 v-if="apellido!==undefined">{{apellido}}</h2>
+                    -->
+                    <!-- Sexta directiva-->
+                    <h3 v-show="nombre!==null">{{index + 1}} - {{nombre}}</h1>
+                    <h4 v-show="apellido!==null">{{apellido}}</h2>
+                    
+
+                    </li>
 
 
             </ul>
